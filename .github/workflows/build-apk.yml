@@ -1,0 +1,36 @@
+name: Construir APK ¿Y TÚ?
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "Y_TU_Android_Movil_v2.zip"
+      - ".github/workflows/build-apk.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Descomprimir proyecto
+        run: |
+          unzip -q Y_TU_Android_Movil_v2.zip -d proyecto
+          ls -la proyecto/YTuAndroid
+
+      - name: Preparar Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Construir APK
+        working-directory: proyecto/YTuAndroid
+        run: gradle assembleDebug --no-daemon
+
+      - name: Guardar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Y-TU-APK
+          path: proyecto/YTuAndroid/app/build/outputs/apk/debug/app-debug.apk
