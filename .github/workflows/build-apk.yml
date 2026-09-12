@@ -18,6 +18,8 @@ jobs:
       - name: Descomprimir proyecto
         run: |
           unzip -q Y_TU_Android_Movil_v2.zip -d proyecto
+          echo "android.useAndroidX=true" > proyecto/YTuAndroid/gradle.properties
+          echo "android.enableJetifier=true" >> proyecto/YTuAndroid/gradle.properties
           ls -la proyecto/YTuAndroid
 
       - name: Preparar Gradle
