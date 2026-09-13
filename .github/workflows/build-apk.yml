@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "- "Y_TU_Android_FINAL_3_2_REVISADA.zip""
+      - "Y_TU_Android_FINAL_3_2_REVISADA.zip"
       - ".github/workflows/build-apk.yml"
 
 jobs:
