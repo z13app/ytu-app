@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "Y_TU_Android_v2_7_BOTONES_FIX.zip"
+      - "- "Y_TU_Android_FINAL_3_2_REVISADA.zip""
       - ".github/workflows/build-apk.yml"
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
 
       - name: Descomprimir proyecto
         run: |
-          unzip -q Y_TU_Android_v2_7_BOTONES_FIX.zip -d proyecto
+          unzip -q Y_TU_Android_FINAL_3_2_REVISADA.zip -d proyecto
           echo "android.useAndroidX=true" > proyecto/YTuAndroid/gradle.properties
           echo "android.enableJetifier=true" >> proyecto/YTuAndroid/gradle.properties
           ls -la proyecto/YTuAndroid
