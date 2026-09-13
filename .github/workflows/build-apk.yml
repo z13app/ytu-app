@@ -17,7 +17,7 @@ jobs:
 
       - name: Descomprimir proyecto
         run: |
-          Y_TU_Android_v2_7_BOTONES_FIX.zip -d proyecto
+          unzip -q Y_TU_Android_v2_7_BOTONES_FIX.zip -d proyecto
           echo "android.useAndroidX=true" > proyecto/YTuAndroid/gradle.properties
           echo "android.enableJetifier=true" >> proyecto/YTuAndroid/gradle.properties
           ls -la proyecto/YTuAndroid
